@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/04/06 01:30:51 by sksourou          #+#    #+#             */
+/*   Updated: 2015/04/06 01:30:53 by sksourou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include "libft/libft.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+# define INT_MAX 3000
+# define INT_MIN -4500
+
+typedef	struct	s_ps
+{
+	int		*a;
+	int		*b;
+	int		topa;
+	int 	topb;
+}				t_ps;
+
+void	*stock(char **av, int ac);
+void	*creat_list(char **av, char *b, int ac);
+int		check_arg(int ac, char **av);
+void	error(int ac, int *tab, char **av);
+
+#endif
