@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   resolve.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/06 01:28:55 by sksourou          #+#    #+#             */
-/*   Updated: 2015/04/06 01:28:56 by sksourou         ###   ########.fr       */
+/*   Created: 2015/04/10 18:40:45 by sksourou          #+#    #+#             */
+/*   Updated: 2015/04/10 18:40:46 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pushswap(int ac, char **av)
+int found_swap(t_ps *pile)
 {
-	int a[ac - 1];
-	int b[ac - 1];
-	t_ps pile;
+	int pos;
+	int nbr;
 
-	error(ac, a, av);
-	pile.a = a;
-	pile.b = b;
-	pile.ac = ac - 1;
-	resolve(&pile);
+	pos = 1;
+	nbr = pile->a[0];
+	while (pos < pile->ac)
+	{
+		if (nbr > pile->a[pos])
+			nbr = pile->a[pos++];
+		else if (pos < pile->ac)
+			pos++;
+		printf("yolo\n");
+	}
+	return (nbr);
 }
 
-int	main(int ac, char **av)
+void	resolve(t_ps *pile)
 {
-	if (ac > 2)
-	{
-		if (check_arg(ac, av) == 0)
-			return 0;
-		ft_pushswap(ac, av);
-	}
-	return (0);
+	int i;
+
+	i = found_swap(pile);
+	printf("%d\n", i);
 }

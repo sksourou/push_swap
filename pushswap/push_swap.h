@@ -25,13 +25,14 @@ typedef	struct	s_ps
 {
 	int		*a;
 	int		*b;
-	int		topa;
-	int 	topb;
+	int 	ac;
 }				t_ps;
 
 void	*stock(char **av, int ac);
 void	*creat_list(char **av, char *b, int ac);
 int		check_arg(int ac, char **av);
 void	error(int ac, int *tab, char **av);
+void	resolve(t_ps *pile);
+int 	found_swap(t_ps *pile);
 
 #endif
