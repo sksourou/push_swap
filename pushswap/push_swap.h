@@ -23,9 +23,9 @@
 
 typedef	struct	s_ps
 {
-	int		*a;
-	int		*b;
-	int 	ac;
+	int			*a;
+	int			*b;
+	int 		ac;
 }				t_ps;
 
 void	*stock(char **av, int ac);
@@ -33,6 +33,8 @@ void	*creat_list(char **av, char *b, int ac);
 int		check_arg(int ac, char **av);
 void	error(int ac, int *tab, char **av);
 void	resolve(t_ps *pile);
-int 	found_swap(t_ps *pile);
+int 	found_max(t_ps *pile);
+int		found_swap(int i, t_ps *pile);
+void	swap_ra(t_ps *pile, int pos);
 
 #endif

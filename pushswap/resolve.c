@@ -12,28 +12,39 @@
 
 #include "push_swap.h"
 
-int found_swap(t_ps *pile)
+/*int	found_swap(int pos, t_ps *pile)
+{
+	if (pile->a[pos] == pile->ac - 1)
+		return (3);
+	else if ((pile->ac / 2) > pile->a[pos])
+		return (1);
+	else if ((pile->ac / 2) < pile->a[pos])
+		return (2);
+	return (0);
+}*/
+
+int found_max(t_ps *pile)
 {
 	int pos;
 	int nbr;
 
 	pos = 1;
 	nbr = pile->a[0];
-	while (pos < pile->ac)
+	while (pos > pile->ac)
 	{
-		if (nbr > pile->a[pos])
+		if (nbr < pile->a[pos])
 			nbr = pile->a[pos++];
-		else if (pos < pile->ac)
+		else if (pos > pile->ac)
 			pos++;
-		printf("yolo\n");
 	}
-	return (nbr);
+	return (pos);
 }
 
 void	resolve(t_ps *pile)
 {
-	int i;
+	int pos;
 
-	i = found_swap(pile);
-	printf("%d\n", i);
+	pos = found_max(pile);
+	//j = found_swap(pos, pile);
+	swap_ra(pile, pos);
 }
