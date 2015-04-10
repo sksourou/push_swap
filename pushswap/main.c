@@ -16,12 +16,12 @@ void	ft_pushswap(int ac, char **av)
 {
 	int a[ac - 1];
 	int b[ac - 1];
-
 	t_ps pile;
 
-	error(ac, a , av);
+	error(ac, a, av);
 	pile.a = a;
 	pile.b = b;
+
 }
 
 int	main(int ac, char **av)

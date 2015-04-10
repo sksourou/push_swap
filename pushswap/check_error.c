@@ -16,15 +16,15 @@ void	error(int ac, int *tab, char **av)
 {
 	int			e;
 	int			i;
-	char	*tmp;
+	long int  tmp;
 
 	e = 0;
-	while (e < ac || e != 1)
+	while (e < ac - 1)
 	{
-		//if (((tmp = ft_atoi(av[e + 1]))) > INT_MAX || tmp < INT_MIN)
-		//	ft_putstr("Error"), exit(1);
-		//else
-			tab[e] = ft_atoi(av[(ac - e)]);
+		if (((tmp = ft_atoi(av[e + 1]))) > 3000|| tmp < -3000)
+			ft_putstr("int Error"), exit(1);
+		else
+			tab[e] = ft_atoi(av[e + 1]);
 		e++;
 	}
 	e = 0;
@@ -34,7 +34,7 @@ void	error(int ac, int *tab, char **av)
 		while (i < ac)
 		{
 			if (tab[e] == tab[i])
-				ft_putendl("Error"), exit(1);
+				ft_putendl("doublon"), exit(1);
 			i++;
 		}
 		e++;
