@@ -12,23 +12,41 @@
 
 #include "push_swap.h"
 
+int		*copy(int *cpy, t_ps *pile)
+{
+	int i;
+
+	i = 0;
+	cpy = (int *)malloc(sizeof(int*) * pile->ac + 2);
+	while (i < pile->ac)
+	{
+		cpy[i] = pile->a[i];
+		i++;
+	}
+	return (cpy);
+}
+
 void	swap_ra(t_ps *pile, int pos)
 {
 	int *cpy;
-	int i;
+	int i = 0;
 	int j;
-	int p = 0;
-	//	t_ps *test;
 
-	cpy = pile->a;
-	j = 0;
-	i = 1;  /* Nombre de decalage sur la droite */
-	while(cpy[j] != cpy[(pile->ac)])
+	cpy = copy(cpy, pile);
+	j = 0;  /*compteur de la copie*/
+	while(j < pile->ac)
 	{
-		if ((j + i) > pile->ac)
-			j = (j + i) - pile->ac;
-		pile->a[j + i] = cpy[j];
-		printf("%d\n", cpy[1]);
-		j++;
+		if ((i = (pile->ac) - pos) == 0)
+			break ;
+		if ((j + i) >= pile->ac)
+		{
+			pile->a[(j + i) - pile->ac] = cpy[j];
+			j++;
+		}
+		else
+		{
+			pile->a[j + i] = cpy[j];
+			j++;
+		}
 	}
 }

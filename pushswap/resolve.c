@@ -27,17 +27,21 @@ int found_max(t_ps *pile)
 {
 	int pos;
 	int nbr;
+	int ret;
 
 	pos = 1;
 	nbr = pile->a[0];
-	while (pos > pile->ac)
+	while (pos < pile->ac)
 	{
 		if (nbr < pile->a[pos])
+		{
 			nbr = pile->a[pos++];
-		else if (pos > pile->ac)
+			ret = pos;
+		}
+		else if (pos < pile->ac)
 			pos++;
 	}
-	return (pos);
+	return (ret);
 }
 
 void	resolve(t_ps *pile)

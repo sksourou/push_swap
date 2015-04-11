@@ -36,5 +36,7 @@ void	resolve(t_ps *pile);
 int 	found_max(t_ps *pile);
 int		found_swap(int i, t_ps *pile);
 void	swap_ra(t_ps *pile, int pos);
+int		*copy(int *cpy, t_ps *pile);
+
 
 #endif
