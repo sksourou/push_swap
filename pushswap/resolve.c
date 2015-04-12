@@ -50,5 +50,6 @@ void	resolve(t_ps *pile)
 
 	pos = found_max(pile);
 	//j = found_swap(pos, pile);
-	swap_ra(pile, pos);
+	//swap_ra(pile, pos);
+	swap_a(pile);
 }

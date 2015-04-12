@@ -28,7 +28,7 @@ int		*copy(int *cpy, t_ps *pile)
 
 void	swap_ra(t_ps *pile, int pos)
 {
-	int *cpy;
+	int *cpy = NULL;
 	int i = 0;
 	int j;
 
@@ -49,4 +49,7 @@ void	swap_ra(t_ps *pile, int pos)
 			j++;
 		}
 	}
+	j = 0;
+	while (j < i)
+		ft_putstr("ra "), j++;
 }
