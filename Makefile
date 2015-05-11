@@ -3,49 +3,54 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lubaujar </var/mail/lubaujar>              +#+  +:+       +#+         #
+#    By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/29 00:15:17 by lubaujar          #+#    #+#              #
-#    Updated: 2015/03/02 17:19:26 by lubaujar         ###   ########.fr        #
-#    Updated: 2015/02/20 07:58:23 by lubaujar         ###   ########.fr        #
+#    Updated: 2015/05/07 18:40:07 by sksourou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ps.a
+
+NAME = push_swap
 RM = rm -rf
-FLAGS = -Wall -Wextra -Werror
-SRC = 	check_error.c push_swap.h \
+FLAGS = -g -Wall -Wextra -Werror
+LDFLAGS = -I./includes/ -I./libft/include/
+
+SRC = check_error.c \
 		swap_a_b.c  resolve.c \
-		main.c 		swap.c \
+		main.c 	swap_pa_pb.c	swap.c \
 
 OBJ = $(SRC:.c=.o)
-
-INC = -I./includes/
+	SRCDIR	= ./src/
+	OBJDIR	= ./obj/
+	INCDIR	= ./include/
+	SRCS	= $(addprefix $(SRCDIR), $(SRC))
+	OBJS	= $(addprefix $(OBJDIR), $(OBJ))
+	INCS	= $(addprefix $(INCDIR), $(INC))
 
 all: $(NAME)
 
-$(NAME):
-	@gcc $(FLAGS) $(INC) -c $(SRC)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+$(NAME): $(OBJS) $(INCS)
+	@gcc $(FLAGS) -o $@ $^ -L./libft/  -lft
 	@echo "\n\t \033[32m[All Fine's]\033[0m\n"
+
+$(OBJS): $(SRCS)
+	make -C libft/
+	@gcc $(FLAGS) -c $(SRCS) $(LDFLAGS)
+	@echo "\\033[1;34mGenerating objects... Please wait.\\033[0;39m"
+	@mkdir -p $(OBJDIR)
+	@mv $(OBJ) $(OBJDIR)
 
 clean:
 	@echo "\nRM *.o.. \t      \033[32mOK BITCH!\033[0m"
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJS)
 	@$(RM) *.o
 
 fclean: clean
-	@echo "RM libftprintf.a..    \033[32mOK BITCH!\033[0m"
+	make fclean -C libft/
+	@echo "RM ./ft_ls.. \t      \033[32mOK BITCH!\033[0m"
 	@$(RM) $(NAME)
 
 re: fclean all
 
-exec:
-	@echo "\033[37mgcc *.c -I./includes/ ..\033[0m"
-	@echo "  \033[37m..exec ./a.out\033[0m\n"
-	@gcc *.c -g $(FLAGS) -I./includes/
-	@echo "\033[31m./a.out\033[m\n"
-	@./a.out
-
-.PHONY: all clean fclean re exec
+.PHONY: all clean fclean re

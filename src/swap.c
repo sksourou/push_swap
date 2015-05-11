@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/10 19:58:48 by sksourou          #+#    #+#             */
-/*   Updated: 2015/04/10 19:58:49 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/11 21:20:56 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,5 @@ void	swap_ra(t_ps *pile, int pos)
 	j = 0;
 	while (j < i)
 		ft_putstr("ra "), j++;
+	pile->topa += 1;
 }

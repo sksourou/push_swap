@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_a.c                                           :+:      :+:    :+:   */
+/*   swap_a_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/12 03:20:05 by sksourou          #+#    #+#             */
-/*   Updated: 2015/04/12 03:20:07 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/11 21:20:52 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,20 @@ void	swap_a(t_ps *pile)
 	}
 }
 
-void	swap_b(t_ps *pile)
+void	swap_b(t_ps *pile, int pos)
 {
-	int cpy;
 	int i = 0;
+	int j = 0;
 
-	if (pile->b[i] < pile->b[i + 1])
+//	printf(" ac =%d\n", pile->ac);
+	while (pile->b[i] != pile->b[pile->ac])
 	{
-		cpy = pile->b[i + 1];
-		pile->b[i + 1] = pile->b[i];
-		pile->b[i] = cpy;
+		j = pile->b[i];
+		pile->b[i + 1] = j;
+		i++;
 	}
+	if (pile->a[pos])
+		pile->b[0] = pile->a[pile->topa];
+	pile->ac -= 1;
+	ft_putendl("pb");
 }
