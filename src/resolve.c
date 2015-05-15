@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/10 18:40:45 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/11 21:20:54 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/15 16:12:35 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,28 @@ int	found_swap(int pos, t_ps *pile)
 
 int found_max(t_ps *pile)
 {
+	int ct;
 	int pos;
-	int nbr;
 	int ret;
 
+	ct = pile->topa;
 	pos = pile->topa;
-	nbr = pile->a[0];
-	while (pos < pile->ac)
+	ret = pile->topa;
+	while (ct < pile->ac - 1)
 	{
-		if (nbr < pile->a[pos])
+		if (pile->topa == pile->ac)
 		{
-			nbr = pile->a[pos++];
-			ret = pos;
+			pos = -2;
+			break ;
 		}
-		else if (pos < pile->ac)
-			pos++;
+		if (pile->a[pos] < pile->a[pos + 1])
+		{
+			pos = ct + 1;
+			ret++;
+		}
+		ct++;
 	}
-	return (ret);
+	return (pos);
 }
 
 void	resolve(t_ps *pile)
@@ -49,29 +54,29 @@ void	resolve(t_ps *pile)
 	int pos;
 	//int mode;
 	int ct;
-	int i;
 	int ac;
 
 	ac = pile->ac;
 	ct = 0;
 	pos = 0;
-	while (ct <= ac)
-	{
-		//ft_putnbr(ct);
+	while (ct <= ac - 1)
+	 {
 		pos = found_max(pile);
-		swap_ra(pile, pos);
-		swap_b(pile, pos);
+		if (pos != pile->topa && pos != -2)
+			swap_ra(pile, pos);
+		if (pos != -2)
+			push_b(pile);
 		ct++;
 	}
 
 
-	i = 1;
-	while(i <= 2)
-	{
-		ft_putnbr(pile->b[i]);
-		ft_putchar('\n');
-		i++;
-	}
+	//i = 1;
+	//while(i <= 2)
+	// {
+	// 	ft_putnbr(pile->b[i]);
+	// 	ft_putchar('\n');
+	// 	i++;
+	// }
 	//j = found_swap(pos, pile);
 	//swap_a(pile);
 }

@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 01:30:51 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/11 21:20:49 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/15 16:12:36 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,7 @@ int 	found_max(t_ps *pile);
 int		found_swap(int i, t_ps *pile);
 void	swap_ra(t_ps *pile, int pos);
 int		*copy(int *cpy, t_ps *pile);
-void	swap_a(t_ps *pile);
-void	swap_b(t_ps *pile, int pos);
-void	swap_pb(t_ps *pile, int pos);
-void	swap_pa(t_ps *pile);
+void	push_b(t_ps *pile);
 
 
 #endif
