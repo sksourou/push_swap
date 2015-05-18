@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 01:28:55 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/15 11:43:27 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/18 12:32:39 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	ft_pushswap(int ac, char **av)
 	pile.acb = ac - 1;
 	pile.topa = 0;
 	pile.topb = 0;
-	resolve(&pile);
+	if (verif_list(&pile) == 0)
+		resolve(&pile);
 }
 
 int	main(int ac, char **av)
