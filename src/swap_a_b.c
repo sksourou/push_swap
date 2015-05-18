@@ -23,10 +23,24 @@ void	push_b(t_ps *pile)
 		pile->b[i + 1] = j;
 		i++;
 	}
-	printf("pile->a[%d]\n", pile->a[pile->ac - 1]);
 	if (pile->a[pile->ac])
 		pile->b[0] = pile->a[pile->ac - 1];
 		ft_putstr("pb ");
-	if (pile->topa != pile->ac)
-		pile->ac -= 1;
+	pile->ac -= 1;
+}
+
+void	push_a(t_ps *pile)
+{
+	int i = pile->acb - 1;
+	int j = 0;
+ 
+	while (j < pile->acb)
+	{
+		pile->a[j] = pile->b[i];
+		ft_putendl("");
+		printf("pile->a[i] %d\n", pile->a[j]);
+		i--;
+		j++;
+		ft_putstr("pa ");
+	}
 }

@@ -33,8 +33,8 @@ void	swap_ra(t_ps *pile, int pos)
 	int j = 0;  /*compteur de la copie*/
 
 	cpy = copy(cpy, pile);
-	i = (pile->ac - pos) - 1;
-	while (j < pile->ac)
+	i = ((pile->ac - 1) - pos);
+	while (j < pile->ac && i != 0)
 	{
 		if ((j + i) >= pile->ac)
 		{
@@ -49,5 +49,5 @@ void	swap_ra(t_ps *pile, int pos)
 	}
 	j = 0;
 	while (j < i)
-		ft_putstr("ra "), j++;;
+		ft_putstr("ra "), j++;
 }

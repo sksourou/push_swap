@@ -22,6 +22,7 @@ void	ft_pushswap(int ac, char **av)
 	pile.a = a;
 	pile.b = b;
 	pile.ac = ac - 1;
+	pile.acb = ac - 1;
 	pile.topa = 0;
 	pile.topb = 0;
 	resolve(&pile);

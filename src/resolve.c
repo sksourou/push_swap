@@ -23,27 +23,17 @@ int	found_swap(int pos, t_ps *pile)
 	return (0);
 }
 
-int found_max(t_ps *pile)
+int found_min(t_ps *pile)
 {
 	int ct;
 	int pos;
-	int ret;
 
-	ct = pile->topa;
+	ct = pile->topa + 1;
 	pos = pile->topa;
-	ret = pile->topa;
-	while (ct < pile->ac - 1)
+	while (ct < pile->ac)
 	{
-		if (pile->topa == pile->ac)
-		{
-			pos = -2;
-			break ;
-		}
-		if (pile->a[pos] < pile->a[pos + 1])
-		{
-			pos = ct + 1;
-			ret++;
-		}
+		if (pile->a[pos] > pile->a[ct])
+			pos = ct;
 		ct++;
 	}
 	return (pos);
@@ -61,14 +51,17 @@ void	resolve(t_ps *pile)
 	pos = 0;
 	while (ct <= ac - 1)
 	 {
-		pos = found_max(pile);
-		if (pos != pile->topa && pos != -2)
+		pos = found_min(pile);
+		if (pos == -2)
+		{
+			ft_putendl("non c est pas bon");
+			exit(0);
+		}
 			swap_ra(pile, pos);
-		if (pos != -2)
 			push_b(pile);
 		ct++;
 	}
-
+	push_a(pile);
 
 	//i = 1;
 	//while(i <= 2)

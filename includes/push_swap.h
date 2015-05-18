@@ -26,6 +26,7 @@ typedef	struct	s_ps
 	int			*a;
 	int			*b;
 	int 		ac;
+	int 		acb;
 	int 		topa;
 	int 		topb;
 }				t_ps;
@@ -40,6 +41,6 @@ int		found_swap(int i, t_ps *pile);
 void	swap_ra(t_ps *pile, int pos);
 int		*copy(int *cpy, t_ps *pile);
 void	push_b(t_ps *pile);
-
+void	push_a(t_ps *pile);
 
 #endif
