@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 01:30:51 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/18 16:21:10 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/19 17:31:32 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		check_arg(int ac, char **av);
 void	error(int ac, int *tab, char **av);
 void	resolve(t_ps *pile);
 int 	found_max(t_ps *pile);
+int 	found_min(t_ps *pile);
 int		found_swap(int pos, t_ps *pile);
 void	swap_ra(t_ps *pile, int pos);
 int		*copy(int *cpy, t_ps *pile);
@@ -46,7 +47,9 @@ void 	fast_swap(t_ps *pile);
 int		verif_list(t_ps *list);
 void	swap_sa(t_ps *pile);
 int 	found_max(t_ps *pile);
-int 	backward(t_ps *pile);
-void	swap_sa(t_ps *pile, int pos);
+void	swap_sa(t_ps *pile);
+int 	backward_difone(t_ps *pile);
+int 	backward_difbeg(t_ps *pile);
+void	fast_swap2(t_ps *pile);
 
 #endif

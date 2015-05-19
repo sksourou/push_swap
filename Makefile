@@ -6,7 +6,7 @@
 #    By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/29 00:15:17 by lubaujar          #+#    #+#              #
-#    Updated: 2015/05/15 11:40:17 by sksourou         ###   ########.fr        #
+#    Updated: 2015/05/19 18:21:36 by sksourou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ FLAGS = -g -Wall -Wextra -Werror
 LDFLAGS = -I./includes/ -I./libft/include/
 
 SRC = check_error.c \
-		swap_a_b.c  resolve.c \
-		main.c 	swap.c \
+		check_list.c  resolve.c \
+		main.c 	swap.c fast_swap.c swap_ra.c\
 
 OBJ = $(SRC:.c=.o)
 	SRCDIR	= ./src/
