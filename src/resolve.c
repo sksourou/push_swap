@@ -21,8 +21,8 @@ int	found_swap(int pos, t_ps *pile)
 		return (2);
 	else if (backward_difbeg(pile) == 1)
 		return (3);
-	//else if ((pile->ac / 2) < pile->a[pos])
-	//	return (4);*/
+	else if (((pile->ac / 2) - 2) < pile->a[pos])
+		return (-1);
 	return (0);
 }
 
@@ -60,37 +60,41 @@ int found_min(t_ps *pile)
 
 void	resolve(t_ps *pile)
 {
-	int pos;
-	int ct;
 	int mode;
-	int ac;
 
-	ac = pile->ac;
 	mode = found_swap(found_min(pile), pile);
-	ct = 0;
-	pos = 0;
 	if (mode == 1)
 		fast_swap(pile);
 	if (mode == 2)
 		swap_sa(pile);
 	if (mode == 3)
 		fast_swap2(pile);
-	if (mode != 0)
+	if (mode > 0)
 		return ;
+	verratti(pile);
+}
+
+void verratti(t_ps *pile)
+{
+	int ct;
+	int ac;
+	int mode;
+
+	ct = 0;
+	ac = pile->ac;
 	while (ct < ac)
 	{
+		if (((pile->ac / 2) - 2) > pile->a[found_min(pile)])
+			mode = -1;
+		else 
+			mode = 0;
 		if (pile->a[pile->ac - 1] > pile->a[pile->ac - 2] && pile->ac > 1)
 			swap_sa(pile);
-		pos = found_min(pile), swap_ra(pile, found_min(pile));
+		if (mode == 0)
+			swap_ra(pile, found_min(pile));
+		else 
+			swap_rra(pile, 	found_min(pile) + 1);
 		push_b(pile), ct++;
 	}
-	/*int i = 0;
-	while (i < pile->ac)
-	{
-		ft_putendl("");
-		ft_putnbr(pile->b[i]);
-		ft_putendl("");
-		i++;
-	}*/
 	push_a(pile);
 }

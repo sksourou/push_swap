@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+void	ifarg(int ac, char **av)
+{
+	if (av[1][0] == '-' && av[1][1] == 'v' && av[2][0] == '-' && av[2][1] == 'c')
+		return (1);
+	if (av[1][0] == '-' && av[1][1] == 'v')
+		return (1);
+	else if (av[1][0] == '-' && av[1][1] == 'c')
+		return (2);
+	return (0);
+}
+
 void	error(int ac, int *tab, char **av)
 {
 	int			e;
@@ -22,7 +33,7 @@ void	error(int ac, int *tab, char **av)
 	while (e < ac - 1)
 	{
 		if (((tmp = ft_atoi(av[e + 1]))) > 3000|| tmp < -3000)
-			ft_putstr("int Error"), exit(1);
+			ft_putendl("int Error"), exit(1);
 		else
 			tab[e] = ft_atoi(av[e + 1]);
 		e++;
@@ -57,7 +68,7 @@ int		check_arg(int ac, char **av)
 				e++;
 			else
 			{
-				ft_putstr("BAD ARG");
+				ft_putendl("BAD ARG");
 				return (0);
 			}
 		}

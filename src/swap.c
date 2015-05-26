@@ -14,10 +14,8 @@
 
 void	swap_sa(t_ps *pile)
 {
-	int i;
 	int cpy;
 
-	i = 0;
 	cpy = pile->a[pile->ac - 1];
 	if (pile->a[pile->ac - 1])
 	{

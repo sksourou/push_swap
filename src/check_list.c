@@ -34,7 +34,7 @@ int 	backward_difbeg(t_ps *pile)
 	int i;
 
 	i = 1;
-	if (pile->a[0] > pile->a[1])
+	if (pile->a[0] < pile->a[1])
 		return 0;
 	while (i < pile->ac - 1)
 	{

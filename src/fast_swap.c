@@ -14,11 +14,10 @@
 
 void	fast_swap2(t_ps *pile)
 {
-	(void)*pile;
-	/*if (pile->a[0] > pile->a[pile->ac - 1])
+	if (pile->a[0] > pile->a[pile->ac - 1])
 		swap_rra(pile, 1);
-	if (pile->a[0] > pile->a[pile->ac-1] && pile->a[0] > pile->a[pile->ac-2])
-		swap_rra(pile, 1), swap_sa(pile);*/
+	else if (pile->a[0] < pile->a[pile->ac-1] && pile->a[0] > pile->a[pile->ac-2])
+		swap_rra(pile, 1), swap_sa(pile);
 }
 
 void	fast_swap(t_ps *pile)
