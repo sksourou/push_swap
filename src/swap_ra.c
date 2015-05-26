@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/19 17:23:44 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/19 18:21:35 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/26 16:22:14 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void	swap_ra(t_ps *pile, int pos)
 	}
 	j = 0;
 	while (j < i)
+	{
+		ft_putstr(RED);
 		ft_putstr("ra "), j++;
+		ft_putstr(END);
+	}
 }
 
 void	swap_rra(t_ps *pile, int pos)
@@ -49,7 +53,7 @@ void	swap_rra(t_ps *pile, int pos)
 	while (j < pile->ac && i != 0)
 	{
 		if ((j - i) >= 0)
-		{	
+		{
 			pile->a[(j - i) - pile->ac] = cpy[j];
 			j++;
 		}
@@ -58,10 +62,14 @@ void	swap_rra(t_ps *pile, int pos)
 			pile->a[j - i] = cpy[j];
 			j++;
 		}
-	}	
+	}
 	j = 0;
 	while (j < i)
+	{
+		ft_putstr(BLUE);
 		ft_putstr("rra "), j++;
+		ft_putstr(END);
+	}
 }
 
 

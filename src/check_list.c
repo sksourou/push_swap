@@ -6,11 +6,12 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/19 17:24:13 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/19 17:27:35 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/26 16:28:51 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "colors.h"
 
 int 	backward_difone(t_ps *pile)
 {

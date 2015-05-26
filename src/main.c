@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 01:28:55 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/18 12:32:39 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/26 16:20:40 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@ void	ft_pushswap(int ac, char **av)
 	int b[ac - 1];
 	t_ps pile;
 
-	pile.arg = ifarg(ac, av);
-	if (pile.arg != 0)
-		moov_av()
 	error(ac, a, av);
 	pile.a = a;
 	pile.b = b;

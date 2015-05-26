@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/10 18:40:45 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/19 18:21:35 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/26 16:40:08 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,13 @@ void	resolve(t_ps *pile)
 	if (mode == 1)
 		fast_swap(pile);
 	if (mode == 2)
-		swap_sa(pile);
+	{
+		if (pile->a[pile->ac - 2] > pile->a[pile->ac - 1] \
+		 && pile->a[pile->ac -1] > pile->a[pile->topa])
+			swap_sa(pile);
+		else if (pile->a[pile->ac - 1] < pile->a[pile->ac - 2])
+			swap_ra(pile, (found_min(pile)-1));
+	}
 	if (mode == 3)
 		fast_swap2(pile);
 	if (mode > 0)
@@ -86,13 +92,13 @@ void verratti(t_ps *pile)
 	{
 		if (((pile->ac / 2) - 2) > pile->a[found_min(pile)])
 			mode = -1;
-		else 
+		else
 			mode = 0;
 		if (pile->a[pile->ac - 1] > pile->a[pile->ac - 2] && pile->ac > 1)
 			swap_sa(pile);
 		if (mode == 0)
 			swap_ra(pile, found_min(pile));
-		else 
+		else
 			swap_rra(pile, 	found_min(pile) + 1);
 		push_b(pile), ct++;
 	}

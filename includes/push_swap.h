@@ -6,7 +6,7 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/06 01:30:51 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/19 17:31:32 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/26 16:20:10 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include "colors.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -29,7 +30,7 @@ typedef	struct	s_ps
 	int 		acb;
 	int 		topa;
 	int			topb;
-	int			*arg;
+	int			arg;
 }				t_ps;
 
 void			*stock(char **av, int ac);
