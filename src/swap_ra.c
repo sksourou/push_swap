@@ -16,7 +16,7 @@ void	swap_ra(t_ps *pile, int pos)
 {
 	int *cpy = NULL;
 	int i = 0;
-	int j = 0;  /*compteur de la copie*/
+	int j = pile->topa;  /*compteur de la copie*/
 
 	cpy = copy(cpy, pile);
 	i = ((pile->ac -1) - pos);
@@ -36,6 +36,7 @@ void	swap_ra(t_ps *pile, int pos)
 	j = 0;
 	while (j < i)
 	{
+		pile->ct += 1;
 		ft_putstr(RED);
 		ft_putstr("ra "), j++;
 		ft_putstr(END);
@@ -46,7 +47,7 @@ void	swap_rra(t_ps *pile, int pos)
 {
 	int *cpy = NULL;
 	int i = 0;
-	int j = 0;  /*compteur de la copie*/
+	int j = pile->topa;  /*compteur de la copie*/
 
 	cpy = copy(cpy, pile);
 	i = pos;
@@ -66,11 +67,9 @@ void	swap_rra(t_ps *pile, int pos)
 	j = 0;
 	while (j < i)
 	{
+		pile->ct += 1;
 		ft_putstr(BLUE);
 		ft_putstr("rra "), j++;
 		ft_putstr(END);
 	}
 }
-
-
-

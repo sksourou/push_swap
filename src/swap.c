@@ -22,7 +22,10 @@ void	swap_sa(t_ps *pile)
 		pile->a[pile->ac - 1] = pile->a[pile->ac - 2];
 		pile->a[pile->ac - 2] = cpy;
 	}
+	ft_putstr(CYAN);
 	ft_putstr("sa ");
+	ft_putstr(END);
+	pile->ct += 1;
 }
 
 void	push_b(t_ps *pile)
@@ -39,8 +42,12 @@ void	push_b(t_ps *pile)
 		i++;
 	}
 	pile->b[0] = pile->a[pile->ac - 1];
+	ft_putstr(GREEN);
 	ft_putstr("pb ");
+	ft_putstr(END);
 	pile->ac -= 1;
+	pile->ct += 1;
+
 }
 
 void	push_a(t_ps *pile)
@@ -57,5 +64,6 @@ void	push_a(t_ps *pile)
 		j++;
 		ft_putstr("pa ");
 	}
+	pile->ct += 1;
 }
 

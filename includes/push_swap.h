@@ -19,8 +19,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# define INT_MAX 3000
-# define INT_MIN -4500
+# define INT_MAX 30000
+# define INT_MIN -45000
 
 typedef	struct	s_ps
 {
@@ -31,6 +31,7 @@ typedef	struct	s_ps
 	int 		topa;
 	int			topb;
 	int			arg;
+	int 	 	ct;
 }				t_ps;
 
 void			*stock(char **av, int ac);

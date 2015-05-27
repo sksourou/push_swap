@@ -25,6 +25,7 @@ void	ft_pushswap(int ac, char **av)
 	pile.acb = ac - 1;
 	pile.topa = 0;
 	pile.topb = 0;
+	pile.ct = 0;
 	if (verif_list(&pile) == 0)
 		resolve(&pile);
 }

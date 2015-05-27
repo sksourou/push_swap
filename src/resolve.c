@@ -15,7 +15,7 @@
 int	found_swap(int pos, t_ps *pile)
 {
 	(void)pos;
-	if (pile->ac < 4)
+	if (pile->ac == 3)
 		return (1);
 	else if (backward_difone(pile) == 1)
 		return (2);
@@ -23,6 +23,8 @@ int	found_swap(int pos, t_ps *pile)
 		return (3);
 	else if (((pile->ac / 2) - 2) < pile->a[pos])
 		return (-1);
+	else if (pile->ac == 2)
+		return (4);
 	return (0);
 }
 
@@ -61,8 +63,10 @@ int found_min(t_ps *pile)
 void	resolve(t_ps *pile)
 {
 	int mode;
-
+	
 	mode = found_swap(found_min(pile), pile);
+	printf("mode == %d\n", mode);
+
 	if (mode == 1)
 		fast_swap(pile);
 	if (mode == 2)
@@ -75,9 +79,16 @@ void	resolve(t_ps *pile)
 	}
 	if (mode == 3)
 		fast_swap2(pile);
+	if (mode == 4)
+		swap_sa(pile);
 	if (mode > 0)
 		return ;
 	verratti(pile);
+	if (pile->ct < INT_MAX)
+	{
+		ft_putstr("Nombre d'operation = ");
+		ft_putnbr(pile->ct);
+	}
 }
 
 void verratti(t_ps *pile)
