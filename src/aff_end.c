@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   aff_end.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/06 01:28:55 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/28 13:21:02 by sksourou         ###   ########.fr       */
+/*   Created: 2015/05/28 10:38:15 by sksourou          #+#    #+#             */
+/*   Updated: 2015/05/28 12:49:38 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pushswap(int ac, char **av)
+void	aff_end(t_ps *pile)
 {
-	int		a[ac - 1];
-	int		b[ac - 1];
-	t_ps	pile;
+	int i;
 
-	error(ac, a, av);
-	pile.a = a;
-	pile.b = b;
-	pile.ac = ac - 1;
-	pile.acb = ac - 1;
-	pile.topa = 0;
-	pile.topb = 0;
-	pile.ct = 0;
-	if (verif_list(&pile) == 0)
-		resolve(&pile);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac > 2)
+	i = 0;
+	ft_putendl("");
+	ft_putendl("PILE A : ");
+	while (i < pile->ac)
 	{
-		if (check_arg(ac, av) == 0)
-			return (0);
-		ft_pushswap(ac, av);
+		ft_putnbr(pile->a[i]);
+		ft_putendl("");
+		i++;
 	}
-	return (0);
+	ft_putstr(RED);
+	ft_putstr("Nombres d'operations [");
+	ft_putstr(END);
+	ft_putnbr(pile->ct);
+	ft_putstr(RED);
+	ft_putstr("]");
+	ft_putstr(END);
+	ft_putstr(BLUE);
+	ft_putstr(" PILE IS OK\n");
+	ft_putstr(END);
 }

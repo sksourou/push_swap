@@ -6,21 +6,21 @@
 /*   By: sksourou <sksourou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/19 17:24:13 by sksourou          #+#    #+#             */
-/*   Updated: 2015/05/26 16:28:51 by sksourou         ###   ########.fr       */
+/*   Updated: 2015/05/28 13:18:36 by sksourou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "colors.h"
 
-int 	backward_difone(t_ps *pile)
+int		backward_difone(t_ps *pile)
 {
 	int i;
 
 	i = 0;
 	if (pile->a[pile->ac - 1] > pile->a[pile->ac - 2])
-		return 0;
-	while (i < pile->ac - 2)
+		return (0);
+	while (i < pile->ac - 1)
 	{
 		if (pile->a[i] < pile->a[i + 1])
 			i++;
@@ -30,13 +30,13 @@ int 	backward_difone(t_ps *pile)
 	return (1);
 }
 
-int 	backward_difbeg(t_ps *pile)
+int		backward_difbeg(t_ps *pile)
 {
 	int i;
 
 	i = 1;
 	if (pile->a[0] < pile->a[1])
-		return 0;
+		return (0);
 	while (i < pile->ac - 1)
 	{
 		if (pile->a[i] < pile->a[i + 1])
